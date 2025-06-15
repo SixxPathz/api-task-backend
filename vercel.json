@@ -2,22 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "pom.xml",
+      "src": "build-maven.sh",
       "use": "@vercel/static-build",
       "config": {
         "outputDirectory": "target",
-        "buildCommand": "mvn clean install"
+        "buildCommand": "bash build-maven.sh"
       }
     },
     {
-      "src": "api/index.js",
+      "src": "index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "api/index.js"
+      "dest": "index.js"
     }
   ]
 }
