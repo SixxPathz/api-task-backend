@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/main/java/com/example/apitask/ApiTaskApplication.java",
+      "use": "@vercel/java",
+      "config": {
+        "maxLambdaSize": "10mb",
+        "includeFiles": "target/api-task-0.0.1-SNAPSHOT.jar"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/webhook",
+      "dest": "src/main/java/com/example/apitask/ApiTaskApplication.java"
+    }
+  ],
+  "env": {
+    "SERVER_PORT": "8080"
+  }
+}
