@@ -2,16 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "build.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "outputDirectory": "target",
-        "buildCommand": "bash build.sh"
-      }
-    },
-    {
-      "src": "target/api-task-0.0.1-SNAPSHOT.jar",
-      "use": "@vercel/node",
+      "src": "src/main/java/com/example/apitask/ApiTaskApplication.java",
+      "use": "@vercel/java",
       "config": {
         "maxLambdaSize": "15mb"
       }
@@ -20,11 +12,11 @@
   "routes": [
     {
       "src": "/webhook",
-      "dest": "target/api-task-0.0.1-SNAPSHOT.jar"
+      "dest": "src/main/java/com/example/apitask/ApiTaskApplication.java"
     },
     {
       "src": "/(.*)",
-      "dest": "target/api-task-0.0.1-SNAPSHOT.jar"
+      "dest": "src/main/java/com/example/apitask/ApiTaskApplication.java"
     }
   ],
   "env": {
