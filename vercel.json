@@ -2,18 +2,29 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/main/java/com/example/apitask/ApiTaskApplication.java",
-      "use": "@vercel/java",
+      "src": "pom.xml",
+      "use": "@vercel/static-build",
       "config": {
-        "maxLambdaSize": "10mb",
-        "includeFiles": "target/api-task-0.0.1-SNAPSHOT.jar"
+        "outputDirectory": "target",
+        "buildCommand": "mvn clean package"
+      }
+    },
+    {
+      "src": "target/api-task-0.0.1-SNAPSHOT.jar",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "15mb"
       }
     }
   ],
   "routes": [
     {
       "src": "/webhook",
-      "dest": "src/main/java/com/example/apitask/ApiTaskApplication.java"
+      "dest": "target/api-task-0.0.1-SNAPSHOT.jar"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "target/api-task-0.0.1-SNAPSHOT.jar"
     }
   ],
   "env": {
