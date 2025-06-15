@@ -2,11 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "pom.xml",
+      "src": "build.sh",
       "use": "@vercel/static-build",
       "config": {
         "outputDirectory": "target",
-        "buildCommand": "mvn clean package"
+        "buildCommand": "bash build.sh"
       }
     },
     {
