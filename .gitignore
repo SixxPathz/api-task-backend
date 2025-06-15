@@ -1,34 +1,55 @@
-# Ignore all files in the root 'target/' directory except the executable JAR
-target/*
-!target/api-task-0.0.1-SNAPSHOT.jar
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# Keep Maven Wrapper JAR if you use it for local builds, otherwise ignore it
+# .mvn/wrapper/maven-wrapper.jar
 
-# Keep the .mvn/wrapper/maven-wrapper.jar as it's part of the Maven Wrapper
-.mvn/wrapper/maven-wrapper.jar
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
+# IntelliJ IDEA
+.idea/
 *.iml
+*.iws
 *.ipr
 
-### NetBeans ###
+# Eclipse
+.classpath
+.project
+.settings/
+.apt_generated/
+.factorypath
+.springBeans
+
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
+# VS Code
 .vscode/
+
+# Logs
+*.log
+logs/
+
+# Miscellaneous
+*.jar
+*.war
+*.zip
+*.tar.gz
+*.rar
+*.dll
+*.so
+*.dylib
+
+# Specific to your project (ensure these are removed if they were added)
+build-maven.sh
+index.js

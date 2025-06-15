@@ -2,22 +2,24 @@
   "version": 2,
   "builds": [
     {
-      "src": "build-maven.sh",
-      "use": "@vercel/static-build",
+      "src": "src/main/java/com/example/apitask/ApiTaskApplication.java",
+      "use": "@vercel/java",
       "config": {
-        "outputDirectory": "target",
-        "buildCommand": "bash build-maven.sh"
+        "maxLambdaSize": "15mb"
       }
-    },
-    {
-      "src": "index.js",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
+      "src": "/webhook",
+      "dest": "src/main/java/com/example/apitask/ApiTaskApplication.java"
+    },
+    {
       "src": "/(.*)",
-      "dest": "index.js"
+      "dest": "src/main/java/com/example/apitask/ApiTaskApplication.java"
     }
-  ]
+  ],
+  "env": {
+    "SERVER_PORT": "8080"
+  }
 }
