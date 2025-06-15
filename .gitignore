@@ -1,8 +1,9 @@
-HELP.md
-target/
+# Ignore all files in the root 'target/' directory except the executable JAR
+target/*
+!target/api-task-0.0.1-SNAPSHOT.jar
+
+# Keep the .mvn/wrapper/maven-wrapper.jar as it's part of the Maven Wrapper
 .mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 
 ### STS ###
 .apt_generated
